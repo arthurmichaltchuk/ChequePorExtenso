@@ -1,0 +1,7 @@
+C:\Users\Ivana\Desktop\NDD\PorExtenso\ChequePorExtenso\ChequePorExtenso.ConsoleApp\bin\Debug\ChequePorExtenso.ConsoleApp.exe.config
+C:\Users\Ivana\Desktop\NDD\PorExtenso\ChequePorExtenso\ChequePorExtenso.ConsoleApp\bin\Debug\ChequePorExtenso.ConsoleApp.exe
+C:\Users\Ivana\Desktop\NDD\PorExtenso\ChequePorExtenso\ChequePorExtenso.ConsoleApp\bin\Debug\ChequePorExtenso.ConsoleApp.pdb
+C:\Users\Ivana\Desktop\NDD\PorExtenso\ChequePorExtenso\ChequePorExtenso.ConsoleApp\obj\Debug\ChequePorExtenso.ConsoleApp.csprojAssemblyReference.cache
+C:\Users\Ivana\Desktop\NDD\PorExtenso\ChequePorExtenso\ChequePorExtenso.ConsoleApp\obj\Debug\ChequePorExtenso.ConsoleApp.csproj.CoreCompileInputs.cache
+C:\Users\Ivana\Desktop\NDD\PorExtenso\ChequePorExtenso\ChequePorExtenso.ConsoleApp\obj\Debug\ChequePorExtenso.ConsoleApp.exe
+C:\Users\Ivana\Desktop\NDD\PorExtenso\ChequePorExtenso\ChequePorExtenso.ConsoleApp\obj\Debug\ChequePorExtenso.ConsoleApp.pdb
