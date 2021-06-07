@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace ChequePorExtenso.ConsoleApp
 {
-    public class Numero : Cheque
+    public class Numero
     {
+        public char[] numeros = new char[20];
         public string valor;
         public string resultado = "";
 
