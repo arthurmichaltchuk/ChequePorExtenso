@@ -8,6 +8,6 @@ namespace ChequePorExtenso.ConsoleApp
 {
     public class Cheque
     {
-        public char[] numeros = new char[20];           //qtd de 999B
+        public char[] numeros = new char[20];
     }
 }

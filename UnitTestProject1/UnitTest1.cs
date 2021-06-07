@@ -8,6 +8,33 @@ namespace UnitTestProject1
     public class UnitTest1
     {
         [TestMethod]
+        public void DeveRetonarDezenove()
+        {
+            Numero numero = new Numero();
+            numero.valor = "19,00";
+
+            Assert.AreEqual("Dezenove reais", numero.escreverPorExtenso());
+        }
+
+        [TestMethod]
+        public void DeveRetornatUmRealUmCentavo()
+        {
+            Numero numero = new Numero();
+            numero.valor = "1,01";
+
+            Assert.AreEqual("Um real e um centavo", numero.escreverPorExtenso());
+        }
+
+        [TestMethod]
+        public void DeveRetonarUmBilhao()
+        {
+            Numero numero = new Numero();
+            numero.valor = "1000000000,00";
+
+            Assert.AreEqual("Um bilhão de reais", numero.escreverPorExtenso());
+        }
+
+        [TestMethod]
         public void DeveRetonarCincoCentavos()
         {
             Numero numero = new Numero();
@@ -32,6 +59,15 @@ namespace UnitTestProject1
             numero.valor = "7,00";
 
             Assert.AreEqual("Sete reais", numero.escreverPorExtenso());
+        }
+
+        [TestMethod]
+        public void DeveRetonarUmCentavo()
+        {
+            Numero numero = new Numero();
+            numero.valor = "0,01";
+
+            Assert.AreEqual("Um centavo de real", numero.escreverPorExtenso());
         }
 
         [TestMethod]
@@ -131,6 +167,24 @@ namespace UnitTestProject1
             numero.valor = "8.425.961.637,00";
 
             Assert.AreEqual("Oito bilhões quatrocentos e vinte e cinco milhões novecentos e sessenta e um mil seiscentos e trinta e sete reais", numero.escreverPorExtenso());
+        }
+
+        [TestMethod]
+        public void DeveRetonarOitoBilhõesdeReaiseUmCentavo()
+        {
+            Numero numero = new Numero();
+            numero.valor = "8.000.000.000,01";
+
+            Assert.AreEqual("Oito bilhões de reais e um centavo", numero.escreverPorExtenso());
+        }
+
+        [TestMethod]
+        public void DeveRetonarUmReal()
+        {
+            Numero numero = new Numero();
+            numero.valor = "1,00";
+
+            Assert.AreEqual("Um real", numero.escreverPorExtenso());
         }
     }
 }

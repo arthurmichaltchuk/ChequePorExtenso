@@ -14,65 +14,74 @@ namespace ChequePorExtenso.ConsoleApp
         public string escreverPorExtenso()
         {
             string valornumero = valor;
-            string tempValor = ArrumarFormato(valornumero);
-            string NumSemPontosEVirgulas = TirarPontosVirgulas(tempValor);          
-            
-            numeros = NumSemPontosEVirgulas.ToCharArray();
+            string ValorFormatoCorreto = ArrumarFormato(valornumero);
 
-            string temp = "";
-            string temp2 = "";
+            numeros = ValorFormatoCorreto.ToCharArray();
+
             double[] tempNum = new double[20];
-
-
-            for (int j = 0; j < numeros.Length-2; j += 3)
+            string AuxConversao = "";
+            for (int j = 0; j < numeros.Length - 2; j += 3)
             {
-                for (int i = j; i < j+3; i++)
+                for (int i = j; i < j + 3; i++)
                 {
-                    try
-                    {
-                        temp = Convert.ToString(numeros[i]);
-                        tempNum[i] = Convert.ToDouble(temp);
-                    }
-                    catch
-                    {
-                        tempNum[i] = 0;
-                    }
+                    AuxConversao = Convert.ToString(numeros[i]);
+                    tempNum[i] = Convert.ToDouble(AuxConversao);
                 }
-                VerificarNumeros(tempNum[j], tempNum[j+1], tempNum[j+2]);
+                VerificarNumeros(tempNum[j], tempNum[j + 1], tempNum[j + 2], 0);
                 VerificarNomenclarturaDoValor(j);
             }
             if (totalNumeros() != 0)
-            {
-                if (totalNumeros() == 1 && numeros[11] == '1')
-                    if (verificarCentavoNulo())                    
-                        resultado += " real e ";
-                    else
-                        resultado += " real";
-                else
-                    if (verificarCentavoNulo())
-                        resultado += " reais e ";
-                    else
-                        resultado += " reais";
-            }
-            temp = Convert.ToString(numeros[12]);
-            temp2 = Convert.ToString(numeros[13]);
+                nomenclaturaFinalReais();
 
-            VerificarNumeros(0 , Convert.ToDouble(temp) , Convert.ToDouble(temp2));
+            fazerNomenclaturaCentavos();
 
+            return PrimeiraLetraMaiuscula();
+        }
+
+        private void fazerNomenclaturaCentavos()
+        {
+            string centavoDezena = Convert.ToString(numeros[12]);
+            string centavoUnidade = Convert.ToString(numeros[13]);
+
+            VerificarNumeros(0, Convert.ToDouble(centavoDezena), Convert.ToDouble(centavoUnidade), 1);
+            nomenclaturaFinalCentavos();
+        }
+        private void nomenclaturaFinalCentavos()
+        {
             if (verificarCentavoNulo())
             {
-                if (numeros[13] == '1' && numeros[12] == '0')
-                    if (totalNumeros() != 0)                    
+                Boolean SeExisteSoUmCentavo = numeros[13] == '1' && numeros[12] == '0';
+
+                if (SeExisteSoUmCentavo)
+                    if (totalNumeros() != 0)
                         resultado += " centavo";
                     else
                         resultado += " centavo de real";
                 else
                     if (totalNumeros() != 0)
-                        resultado += " centavos";
-                    else
-                        resultado += " centavos de real";
+                    resultado += " centavos";
+                else
+                    resultado += " centavos de real";
             }
-            return PrimeiraLetraMaiuscula();
+        }
+
+        private void nomenclaturaFinalReais()
+        {
+            if (totalNumerosPosMilhao() == 0 && totalNumerosPreMilhao() != 0)
+                if (verificarCentavoNulo())
+                    resultado += "de reais e ";
+                else
+                    resultado += "de reais";
+            else if (totalNumeros() == 1 && numeros[11] == '1')
+                if (verificarCentavoNulo())
+                    resultado += " real e ";
+                else
+                    resultado += " real";
+            else
+                if (verificarCentavoNulo())
+                    resultado += " reais e ";
+                else
+                    resultado += " reais";
         }
 
         private string PrimeiraLetraMaiuscula()
@@ -91,51 +100,51 @@ namespace ChequePorExtenso.ConsoleApp
 
         private void VerificarNomenclarturaDoValor(int j)
         {
-            if (j == 0 && VerificarBilhoes() != 0)
+            if (j == 0 && VerificarNumeros(0) != 0)
             {
                 if (numeros[0] == '0' && numeros[1] == '0' && numeros[2] == '1')
                     resultado += " bilhão ";
                 else
                     resultado += " bilhões ";
             }
-            else if (j == 3 && VerificarMilhoes() != 0)
+            else if (j == 3 && VerificarNumeros(3) != 0)
             {
                 if (numeros[3] == '0' && numeros[4] == '0' && numeros[5] == '1')
                     resultado += " milhão ";
                 else
                     resultado += " milhões ";
             }
-            else if (j == 6 && VerificarMil() != 0)
-            {
+            else if (j == 6 && VerificarNumeros(6) != 0)
                 resultado += " mil ";
-            }          
         }
 
-        private int VerificarBilhoes()
-        {
-            int cont = 0; 
-            for (int i = 0; i < 3; i++)
-            {
-                if (numeros[i] != '0')
-                    cont++;              
-            }
-            return cont;
-        }
-
-        private int VerificarMilhoes()
+        private int VerificarNumeros(int tamanho)
         {
             int cont = 0;
-            for (int i = 3; i < 6; i++)
+            for (int i = 0 + tamanho; i < 3 + tamanho; i++)
             {
                 if (numeros[i] != '0')
                     cont++;
             }
             return cont;
         }
-        private int VerificarMil()
+
+        private int totalNumerosPreMilhao()
         {
             int cont = 0;
-            for (int i = 6; i < 9; i++)
+            for (int i = 0; i < 6; i++)
+            {
+                if (numeros[i] != '0')
+                    cont++;
+            }
+            return cont;
+        }
+
+
+        private int totalNumerosPosMilhao()
+        {
+            int cont = 0;
+            for (int i = 6; i < 12; i++)
             {
                 if (numeros[i] != '0')
                     cont++;
@@ -165,11 +174,10 @@ namespace ChequePorExtenso.ConsoleApp
         {
             double valorTemp = Convert.ToDouble(valorstring);
             string strValor = valorTemp.ToString("000000000000.00");
-
-            return strValor;
+            return TirarPontosVirgulas(strValor);
         }
 
-        private void VerificarNumeros(double numA, double numB, double numC)
+        private void VerificarNumeros(double numA, double numB, double numC, int ehCentavo)
         {
             if (numA != 0 && numB == 0 && numC == 0) resultado += "e ";
             if (numA == 1) resultado += (numA + numA == 0) ? "cem" : "cento";                   
@@ -204,7 +212,11 @@ namespace ChequePorExtenso.ConsoleApp
             else if (numB == 8) resultado += ((numA > 0) ? " e " : string.Empty) + "oitenta";
             else if (numB == 9) resultado += ((numA > 0) ? " e " : string.Empty) + "noventa";
 
-            if (numB != 1 & numC != 0 & resultado != string.Empty) resultado += " e ";
+            if (ehCentavo == 0)     
+                if (numB != 1 & numC != 0 & resultado != string.Empty) resultado += " e ";
+
+            if (ehCentavo == 1 && numB != 0)
+                if (numB != 1 & numC != 0) resultado += " e ";
 
             if (numB != 1)
                 if (numC == 1) resultado += "um";

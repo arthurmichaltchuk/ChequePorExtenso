@@ -5,3 +5,10 @@ C:\Users\Ivana\Desktop\NDD\PorExtenso\ChequePorExtenso\ChequePorExtenso.ConsoleA
 C:\Users\Ivana\Desktop\NDD\PorExtenso\ChequePorExtenso\ChequePorExtenso.ConsoleApp\obj\Debug\ChequePorExtenso.ConsoleApp.csproj.CoreCompileInputs.cache
 C:\Users\Ivana\Desktop\NDD\PorExtenso\ChequePorExtenso\ChequePorExtenso.ConsoleApp\obj\Debug\ChequePorExtenso.ConsoleApp.exe
 C:\Users\Ivana\Desktop\NDD\PorExtenso\ChequePorExtenso\ChequePorExtenso.ConsoleApp\obj\Debug\ChequePorExtenso.ConsoleApp.pdb
+C:\Users\Michaltchuk\Desktop\NDD\PorExtenso\ChequePorExtenso\ChequePorExtenso.ConsoleApp\bin\Debug\ChequePorExtenso.ConsoleApp.exe.config
+C:\Users\Michaltchuk\Desktop\NDD\PorExtenso\ChequePorExtenso\ChequePorExtenso.ConsoleApp\bin\Debug\ChequePorExtenso.ConsoleApp.exe
+C:\Users\Michaltchuk\Desktop\NDD\PorExtenso\ChequePorExtenso\ChequePorExtenso.ConsoleApp\bin\Debug\ChequePorExtenso.ConsoleApp.pdb
+C:\Users\Michaltchuk\Desktop\NDD\PorExtenso\ChequePorExtenso\ChequePorExtenso.ConsoleApp\obj\Debug\ChequePorExtenso.ConsoleApp.csproj.AssemblyReference.cache
+C:\Users\Michaltchuk\Desktop\NDD\PorExtenso\ChequePorExtenso\ChequePorExtenso.ConsoleApp\obj\Debug\ChequePorExtenso.ConsoleApp.csproj.CoreCompileInputs.cache
+C:\Users\Michaltchuk\Desktop\NDD\PorExtenso\ChequePorExtenso\ChequePorExtenso.ConsoleApp\obj\Debug\ChequePorExtenso.ConsoleApp.exe
+C:\Users\Michaltchuk\Desktop\NDD\PorExtenso\ChequePorExtenso\ChequePorExtenso.ConsoleApp\obj\Debug\ChequePorExtenso.ConsoleApp.pdb
